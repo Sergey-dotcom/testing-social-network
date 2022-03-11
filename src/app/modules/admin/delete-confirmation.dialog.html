@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>{{"delete_conf.delete_c" | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+    <p>{{"delete_conf.delete_msg" | translate}}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>{{"delete_conf.cancel" | translate}}</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>{{"delete_conf.delete" | translate}}</button>
+</mat-dialog-actions>

@@ -1,0 +1,85 @@
+{
+    "login": {
+        "login": "Login",
+        "username": "Username",
+        "password": "Password",
+        "username_error": "The username and password were not recognized",
+        "email_error": "Please provide a valid email address",
+        "password_error": "Please provide a valid password",
+        "success": "Successfully logged in"
+
+    },
+    "footer": {
+        "footer_msg": "Testing social network"
+    },
+    "add_edit": {
+        "add_user": "Add User",
+        "edit_user": "Edit User",
+        "upload": "Upload Avatar",
+        "remove": "Remove avatar",
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "first_error": "First Name is required",
+        "last_error": "Last Name is required",
+        "birthday_range": "Birthday should be between 25 and 65",
+        "login": "Login",
+        "login_error": "Login is required",
+        "password": "Password",
+        "leave_blank": "Leave blank to keep the same password",
+        "password_req": "Password is required",
+        "password_len": "Password must be at least 6 characters",
+        "save": "Save",
+        "cancel": "Cancel",
+        "success": "User added successfully",
+        "update": "Update successful",
+        "size": "Maximum size allowed is",
+        "img": "Only Images are allowed ( JPG | PNG )",
+        "error": "You shouldn't delete yourself!",
+        "country": "Country",
+        "city": "City",
+        "role": "Role",
+        "about": "About",
+        "birthday": "Birthday",
+        "wrongEducationPeriod": "The graduate year is less than the start year"
+    },
+    "list": {
+        "add": "Add",
+        "id": "ID",
+        "login": "Login",
+        "role": "Role",
+        "status": "Status",
+        "name": "Name",
+        "birthday": "Birthday",
+        "actions": "Actions"
+    },
+    "header": {
+        "header_msg": "Testing social network",
+        "overview": "Overview users",
+        "administer": "Administer users",
+        "english": "English",
+        "franch": "Franch",
+        "logout": "Logout"
+    },
+    "delete_conf": {
+        "delete_c": "Delete confirmation",
+        "delete_msg": "Do you want to delete selected user?",
+        "cancel": "Cancel",
+        "delete": "Delete"
+    },
+    "details": {
+        "educations": "Educations",
+        "add_education": "Add Education",
+        "user_details": "User details",
+        "type": "Type",
+        "specialization": "Specialization",
+        "title": "Title",
+        "education_s": "Education start",
+        "education_e": "Education end",
+        "back": "Back"
+    },
+    "user_list": {
+        "search": "Search user",
+        "profile": "PROFILE",
+        "msg": "MESSAGES"
+    }
+}

@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+}
+
+.form-group {
+    padding: 8px 16px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+}

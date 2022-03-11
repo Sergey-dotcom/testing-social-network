@@ -1,0 +1,84 @@
+{
+    "login": {
+        "login": "Connexion",
+        "username": "Nom d'utilisateur",
+        "password": "Le mot de passe",
+        "username_error": "Le nom d'utilisateur et le mot de passe n'ont pas été reconnus",
+        "email_error": "Veuillez fournir une adresse email valide",
+        "password_error": "Veuillez fournir un mot de passe valide",
+        "success": "Connexion réussie"
+    },
+    "footer": {
+        "footer_msg": "Tester le réseau social"
+    },
+    "add_edit": {
+        "add_user": "Ajouter un utilisateur",
+        "edit_user": "Modifier l'utilisateur",
+        "upload": "Télécharger l'avatar",
+        "remove": "Supprimer l'avatar",
+        "first_name": "Prénom",
+        "last_name": "Nom de famille",
+        "first_error": "Le prénom est requis",
+        "last_error": "Le nom de famille est requis",
+        "birthday_range": "L'anniversaire doit être compris entre 25 et 65 ans",
+        "login": "Connexion",
+        "login_error": "La connexion est requise",
+        "password": "Mot de passe",
+        "leave_blank": "Laisser vide pour garder le même mot de passe",
+        "password_req": "Mot de passe requis",
+        "password_len": "Le mot de passe doit être au moins de 6 caractères",
+        "save": "Sauver",
+        "cancel": "Annuler",
+        "success": "Utilisateur ajouté avec succès",
+        "update": "Mise à jour réussie",
+        "size": "La taille maximale autorisée est",
+        "img": "Seules les images sont autorisées ( JPG | PNG )",
+        "error": "Vous ne devriez pas vous supprimer!",
+        "country": "De campagne",
+        "city": "Ville",
+        "role": "Rôle",
+        "about": "Sur",
+        "birthday": "Date d'anniversaire",
+        "wrongEducationPeriod": "L'année d'études supérieures est inférieure à l'année de début"
+    },
+    "list": {
+        "add": "Ajouter",
+        "id": "ID",
+        "login": "Connexion",
+        "role": "Rôle",
+        "status": "Statut",
+        "name": "Nom",
+        "birthday": "Date d'anniversaire",
+        "actions": "Actions"
+    },
+    "header": {
+        "header_msg": "Tester le réseau social",
+        "overview": "Vue d'ensemble des utilisateurs",
+        "administer": "Administrer les utilisateurs",
+        "english": "Anglais",
+        "franch": "Français",
+        "logout": "Se déconnecter"
+    },
+    "delete_conf": {
+        "delete_c": "Supprimer la confirmation",
+        "delete_msg": "Voulez-vous supprimer l'utilisateur sélectionné?",
+        "cancel": "Annuler",
+        "delete": "Supprimer"
+    },
+    "details": {
+        "educations": "Formations",
+        "add_education": "Ajouter une formation",
+        "user_details": "Détails de l'utilisateur",
+        "type": "Taper",
+        "specialization": "Spécialisation",
+        "title": "Titre",
+        "education_s": "Début de l'éducation",
+        "education_e": "Fin de l'éducation",
+        "back": "Arrière"
+    },
+    "user_list": {
+        "search": "Rechercher un utilisateur",
+        "profile": "PROFIL",
+        "msg": "MESSAGES"
+    }
+}

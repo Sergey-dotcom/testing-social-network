@@ -1,0 +1,157 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <h2 *ngIf="isAddMode">{{ "add_edit.add_user" | translate }}</h2>
+    <h2 *ngIf="!isAddMode">{{ "add_edit.edit_user" | translate }}</h2>
+  </div>
+  <div class="wrapper">
+    <div class="box">
+      <div class="form-group column">
+        <mat-form-field class="full-width-input">
+          <mat-label>{{ "add_edit.login" | translate }}</mat-label>
+          <input matInput formControlName="login" required>
+          <mat-error *ngIf="f['login'].invalid">{{ "add_edit.login_error" | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>{{ "add_edit.password" | translate }}</mat-label>
+          <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <ng-container *ngIf="submitted && f['password'].errors">
+            <mat-error *ngIf="f['password'].invalid">
+              {{ "add_edit.password_req" | translate }}
+            </mat-error>
+            <mat-error *ngIf="f['password'].errors['minlength']">
+              {{ "add_edit.password_len" | translate }}
+            </mat-error>
+          </ng-container>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ "add_edit.role" | translate }}</mat-label>
+          <mat-select formControlName="role">
+            <mat-option value="user">User</mat-option>
+            <mat-option value="admin">Admin</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>{{ "add_edit.first_name" | translate }}</mat-label>
+          <input matInput formControlName="first_name" required>
+          <mat-error *ngIf="f['first_name'].invalid">{{ "add_edit.first_error" | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>{{ "add_edit.last_name" | translate }}</mat-label>
+          <input matInput formControlName="last_name" required>
+          <mat-error *ngIf="f['last_name'].invalid">{{ "add_edit.last_error" | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <label for="about">{{ "add_edit.birthday" | translate }}</label>
+          <input matInput [matDatepicker]="picker" formControlName="birthday" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="f['birthday'].errors && f['birthday'].errors['invalidBirthdayRange']">
+            {{ "add_edit.birthday_range" | translate }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>{{ "add_edit.country" | translate }}</mat-label>
+          <input matInput formControlName="country">
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>{{ "add_edit.city" | translate }}</mat-label>
+          <input matInput formControlName="city">
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>{{ "add_edit.about" | translate }}</mat-label>
+          <textarea matInput formControlName="about"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="box">
+      <div class="avatar-wrapper">
+        <fieldset class="form-group">
+          {{ avatarError }}
+          <div class="custom-file">
+            <input type="file" (change)="avatarChangeEvent($event)" class="img-avatar" />
+            <div class="img-space">
+              <ng-container *ngIf="isAvatarSaved; else elseTemplate">
+                <img [src]="avatarBase64" />
+              </ng-container>
+              <ng-template #elseTemplate>
+                <img src="/assets/img/no-avatar.jpg" alt="no avatar" class="img-avatar" />
+              </ng-template>
+            </div>
+          </div>
+        </fieldset>
+        <button *ngIf="isAvatarSaved" mat-button (click)="removeAvatar()">
+          <mat-icon>delete</mat-icon>
+          {{ "add_edit.remove" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <h3>{{ "details.educations" | translate }}</h3>
+    <ng-container formArrayName="educations">
+      <ng-container *ngFor="let education of educations.controls; let edIndex = index">
+        <div class="education-form-row" [formGroupName]="edIndex">
+          <mat-form-field>
+            <mat-select formControlName="type" placeholder="Type">
+              <mat-option value="school">School</mat-option>
+              <mat-option value="university">University</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="title" placeholder="Title">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput formControlName="specialization" placeholder="Specialization">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select formControlName="start" placeholder="Start">
+              <mat-option value="2022">2022</mat-option>
+              <mat-option value="2021">2021</mat-option>
+              <mat-option value="2020">2020</mat-option>
+              <mat-option value="2019">2019</mat-option>
+              <mat-option value="2018">2018</mat-option>
+              <mat-option value="2017">2017</mat-option>
+              <mat-option value="2016">2016</mat-option>
+              <mat-option value="2015">2015</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select formControlName="end" placeholder="End">
+              <mat-option value="2022">2022</mat-option>
+              <mat-option value="2021">2021</mat-option>
+              <mat-option value="2020">2020</mat-option>
+              <mat-option value="2019">2019</mat-option>
+              <mat-option value="2018">2018</mat-option>
+              <mat-option value="2017">2017</mat-option>
+              <mat-option value="2016">2016</mat-option>
+              <mat-option value="2015">2015</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button class="education-delete" mat-mini-fab color="primary" type="button"
+            (click)="removeEducation(edIndex)">
+            <mat-icon class="delete-btn">delete_forever</mat-icon>
+          </button>
+          <mat-error class="row-error" *ngIf="education.errors && education.errors['wrongEducationPeriod']">
+            {{ "add_edit.wrongEducationPeriod" | translate }}
+          </mat-error>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <button mat-flat-button color="primary" type="button" (click)="addEducation()">
+      <mat-icon class="add-course-btn">add</mat-icon>
+      {{ "details.add_education" | translate }}
+    </button>
+  </div>
+
+  <div class="form-group text-right">
+    <button mat-flat-button routerLink="/admin">{{"add_edit.cancel" | translate}}</button>
+    <button [disabled]="loading" mat-flat-button color="primary" type="submit">
+      {{ "add_edit.save" | translate }}
+    </button>
+  </div>
+</form>

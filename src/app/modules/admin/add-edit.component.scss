@@ -1,0 +1,28 @@
+.full-width-input {
+    width: 100%;
+    min-width: 300px;
+}
+
+.form-group {
+    padding: 8px 16px;
+    border-width: 0;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.education-delete {
+    position: relative;
+    top: -5px;
+    right: -5px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.row-error {
+    margin-bottom: 8px;
+}

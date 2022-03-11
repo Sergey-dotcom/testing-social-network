@@ -1,0 +1,91 @@
+<div class="form-group">
+  <h1>{{ "details.user_details" | translate }}</h1>
+</div>
+
+<div class="form-group" *ngIf="details">
+  <div class="wrapper">
+    <div class="box">
+      <p>
+        <span class="label">{{ "add_edit.login" | translate }}:</span>
+        {{details.login}}
+      </p>
+      <p>
+        <span class="label">{{ "add_edit.role" | translate }}:</span>
+        {{details.role}}
+      </p>
+      <p>
+        <span class="label">{{ "add_edit.first_name" | translate }}:</span>
+        {{details.first_name}}
+      </p>
+      <p>
+        <span class="label">{{ "add_edit.last_name" | translate }}:</span>
+        {{details.last_name}}
+      </p>
+      <p>
+        <span class="label">{{ "add_edit.birthday" | translate }}</span>
+        {{details.birthday | date: 'shortDate'}}
+      </p>
+      <p>
+        <span class="label">{{ "add_edit.country" | translate }}:</span>
+        {{details.country}}
+      </p>
+      <p>
+        <span class="label">{{ "add_edit.city" | translate }}:</span>
+        {{details.city}}
+      </p>
+      <p>
+        <span class="label">{{ "add_edit.about" | translate }}:</span>
+        {{details.about}}
+      </p>
+    </div>
+    <div class="box">
+      <img *ngIf="details.avatar" [src]="details.avatar" />
+      <img *ngIf="!details.avatar" src="/assets/img/no-avatar.jpg" alt="no avatar" class="img-avatar" />
+    </div>
+  </div>
+</div>
+<div class="form-group" *ngIf="details && details.educations && details.educations.length">
+  <h3>{{ "details.educations" | translate }}</h3>
+  <table mat-table [dataSource]="details.educations" class="mat-elevation-z8">
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "details.type" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="specialization">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "details.specialization" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.specialization }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "details.title" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="education_start">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "details.education_s" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.start }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="education_end">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "details.education_e" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.end }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="educationsColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: educationsColumns"></tr>
+  </table>
+</div>
+<div class="form-group">
+  <button mat-raised-button color="primary" routerLink="/users">{{ "details.back" | translate }}</button>
+</div>

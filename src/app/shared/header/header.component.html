@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <span>{{"header.header_msg" | translate}}</span>
+    <button *ngIf="isAdminOnly()" mat-button routerLink="/users">
+        <mat-icon>people</mat-icon>
+        {{"header.overview" | translate}}
+    </button>
+    <button *ngIf="isAdminOnly()" mat-button routerLink="/admin">
+        <mat-icon>supervised_user_circle</mat-icon>
+        {{"header.administer" | translate}}
+    </button>    
+    <span class="spacer"></span>
+    <button mat-button [matMenuTriggerFor]="languageMenu">
+        <mat-icon>language</mat-icon>
+    </button>
+    <mat-menu x-position="before" #languageMenu="matMenu">
+        <button mat-menu-item (click)="setActiveLanguage('en')">
+            <!-- <mat-icon>flag</mat-icon> -->
+            <img src="/assets/img/flags/GB.png"/>
+            {{"header.english" | translate}}
+        </button>
+        <button mat-menu-item (click)="setActiveLanguage('fr')">
+            <!-- <mat-icon>flag</mat-icon> -->
+            <img src="/assets/img/flags/FR.png"/>
+            {{"header.franch" | translate}}
+        </button>
+    </mat-menu>
+
+    <button *ngIf="isAuthenticated" mat-button [mat-menu-trigger-for]="userMenu" fxHide="false" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu x-position="before" #userMenu="matMenu">
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            {{"header.logout" | translate}}
+        </button>
+    </mat-menu>
+</mat-toolbar>

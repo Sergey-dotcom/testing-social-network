@@ -1,0 +1,37 @@
+<div class="content">
+    <form class="example-form">
+        <mat-form-field>
+            <input type="text" placeholder="{{'user_list.search' | translate}}" [formControl]="usersSearch" matInput
+                [matAutocomplete]="auto" specialIsAlphaNumeric>
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id"
+                    routerLink="/users/{{option.id}}">
+                    {{getFullName(option)}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+    <div fxLayout="row wrap" fxLayoutGap="16px grid" *ngIf="users">
+        <div fxFlex="25%" class="user-card" *ngFor="let user of users">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                    <mat-icon appUserStatusColor [status]="user.status" class="user-status">trip_origin</mat-icon>
+                    <mat-card-title>{{getFullName(user) | toInitials}}</mat-card-title>
+                    <mat-card-subtitle>{{user.country}}, {{user.city}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image *ngIf="user.avatar" [src]="user.avatar" />
+                <img mat-card-image *ngIf="!user.avatar" src="/assets/img/no-avatar.jpg" alt="no avatar"
+                    class="img-avatar" />
+                <mat-card-content>
+                    <p>
+                        {{user.about}}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button routerLink="/users/{{user.id}}">{{'user_list.profile' | translate}}</button>
+                    <button mat-button disabled>{{'user_list.msg' | translate}}</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

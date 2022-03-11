@@ -1,0 +1,57 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf="users">
+            <table mat-table [dataSource]="users" class="mat-elevation-z8">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>{{"list.id" | translate}}</th>
+                    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="login">
+                    <th mat-header-cell *matHeaderCellDef>{{"list.login" | translate}}</th>
+                    <td mat-cell *matCellDef="let element">{{element.login}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="role">
+                    <th mat-header-cell *matHeaderCellDef>{{"list.role" | translate}}</th>
+                    <td mat-cell *matCellDef="let element">{{element.role}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef>{{"list.status" | translate}}</th>
+                    <td mat-cell *matCellDef="let element">{{element.status}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>{{"list.name" | translate}}</th>
+                    <td mat-cell *matCellDef="let element">{{element.first_name}} {{element.last_name}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="birthday">
+                    <th mat-header-cell *matHeaderCellDef>{{"list.birthday" | translate}}</th>
+                    <td mat-cell *matCellDef="let element">{{element.birthday | date: 'shortDate' }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>{{"list.actions" | translate}}</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-button routerLink="edit/{{element.id}}">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-button (click)="openDeleteDialog(element.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <div class="row align-right">
+            <button mat-fab color="primary" routerLink="add">
+                <mat-icon>person_add</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
